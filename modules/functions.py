@@ -81,7 +81,7 @@ def calc_reg_lin(X, Y, err):
     else:
         raise ValueError("Not yet implemented for arrays of dimensions greater than 2")
 
-def calc_cm():
+def calc_cm():# ! check this
     # Calculate center of mass
     massa_gancio = 19.88  # g
     massa_masse = 79.56  # g
@@ -94,11 +94,18 @@ def calc_cm():
         altezza_base_gancio * massa_gancio / 4 + altezza_masse * (massa_masse + 3/4 * massa_gancio)
     ) / massa_tot # mm
 
+def calc_equiv(length):
+    h = 21.28 #mm
+    R = 26.00/2 #mm
+
+    return length + (4*R**2 + h**2)/(16*length) #mm
+
 def calc_length(l: np.ndarray):
     l = np.array(l)
     lunghezza_riferimento = 206.10  # mm
     lunghezza_metro = 405 # mm
-    return -(l - lunghezza_riferimento) + lunghezza_metro - calc_cm()
+    length = -(l - lunghezza_riferimento) + lunghezza_metro - calc_cm()
+    return calc_equiv(length)
 
 def calc_t_value(coeff, std, expected):
     return (coeff - expected) / std
