@@ -6,4 +6,6 @@ I dati sono salvati nella directory `\data\`.
 
 Le immagini sono salvate nella directory `\images\`.
 
+La costruzione geometrica è accessibile su [Desmos](https://www.desmos.com/calculator/exwzs5r1sa).
+
 Nella directory `\old\` si trovano vecchi codici, ora inutilizzati.
